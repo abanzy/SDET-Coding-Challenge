@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  checkout-setup:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,27 +22,12 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-  pull-docker-image:
-    runs-on: ubuntu-latest
-    needs: checkout-setup
-
-    steps:
     - name: Pull Docker Image
       run: docker pull public.ecr.aws/l4q9w4c5/loanpro-calculator-cli:latest
 
-  run-tests:
-    runs-on: ubuntu-latest
-    needs: pull-docker-image
-
-    steps:
     - name: Run Tests
       run: npm test
 
-  upload-report:
-    runs-on: ubuntu-latest
-    needs: run-tests
-
-    steps:
     - name: Upload Test Report
       if: always()
       uses: actions/upload-artifact@v2
