@@ -22,9 +22,17 @@ describe('Add Operation Tests', () => {
     expect(runCalculator('add', 2.5, 3.2)).toBe('Result: 5.7');
   });
 
+  test('add 1e-10 + 1e-10', () => {
+    expect(runCalculator('add', 1e-10, 1e-10)).toBe('Result: 0');
+  });
+
   test('add 1e10 + 1e10', () => {
     expect(runCalculator('add', 1e10, 1e10)).toBe('Result: 20000000000');
   });
+  
+  test('add 1e10 + -1e10', () => {
+    expect(runCalculator('add', 1e10, -1e10)).toBe('Result: 0');
+  });  
 
   // Negative tests
   test('add invalid operands', () => {

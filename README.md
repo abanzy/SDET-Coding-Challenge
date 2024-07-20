@@ -1,15 +1,41 @@
 [![CI](https://github.com/abanzy/SDET-Coding-Challenge/actions/workflows/ci.yml/badge.svg)](https://github.com/abanzy/SDET-Coding-Challenge/actions/workflows/ci.yml)
-
 # 🧪 Test Suite for CLI Calculator
+
+[![CI](https://github.com/abanzy/SDET-Coding-Challenge/actions/workflows/ci.yml/badge.svg)](https://github.com/abanzy/SDET-Coding-Challenge/actions/workflows/ci.yml)
 
 Welcome to the **Test Suite for CLI Calculator**! This project ensures the accuracy and reliability of a command-line calculator through a comprehensive set of automated tests. The test suite is implemented using Jest and integrated with GitHub Actions for continuous integration.
 
 # 🔎 Findings
 The calculator application exhibits inconsistencies in error response formats across different operations. These inconsistencies can lead to confusion and misinterpretation of error messages. Uniformity in error responses is crucial for clarity and effective debugging.
+
 <details>
   <summary>Click me for a expanded report</summary>
 
-# 🐛 Bug Report: Inconsistencies in Error Response Uniformity
+
+## 🐛  Bug Report: Addition Operation Failure
+
+## Summary
+
+The test for adding very large numbers (`1e10 + -1e10`) isn't working as expected! It should give us zero, but instead it's showing a strange result: `"Result: 31337"`.
+
+It can be recreated by running the command
+
+```sh
+ docker run --rm public.ecr.aws/l4q9w4c5/loanpro-calculator-cli add 1e10 -1e10
+```
+
+**Where's the culprit hiding?**
+
+The test case is in the file `tests/tests/add.spec.js` on line 34.
+ Here's the test code snippet:
+
+```javascript
+test('add 1e10 + -1e10', () => {
+  expect(runCalculator('add', 1e10, -1e10)).toBe('Result: 0');
+});
+
+```
+## 🐛 Bug Report: Inconsistencies in Error Response Uniformity
 
 ## Summary
 

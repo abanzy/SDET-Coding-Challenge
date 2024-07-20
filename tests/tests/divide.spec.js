@@ -26,6 +26,18 @@ describe('Divide Operation Tests', () => {
     expect(runCalculator('divide', 1e-10, 1e10)).toBe('Result: 0');
   });
 
+  test('divide 1e10 / 1e5', () => {
+    expect(runCalculator('divide', 1e10, 1e5)).toBe('Result: 100000');
+  });
+
+  test('divide 1e-10 / 1e-10', () => {
+    expect(runCalculator('divide', 1e-10, 1e-10)).toBe('Result: 1');
+  });
+
+  test('divide 1e-10 / 1e-11', () => {
+  expect(runCalculator('divide', 1e-10, 1e-11)).toBe('Result: 10');
+});
+
   // Negative tests
   test('divide by zero', () => {
     expect(runCalculator('divide', 5, 0)).toBe('Error: Cannot divide by zero');

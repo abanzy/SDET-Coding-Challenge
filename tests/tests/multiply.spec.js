@@ -30,6 +30,14 @@ describe('Multiply Operation Tests', () => {
     expect(runCalculator('multiply', 'two', 'three')).toBe('Invalid argument. Must be a numeric value.');
   });
 
+  test('multiply 1e5 * 1e5', () => {
+    expect(runCalculator('multiply', 1e5, 1e5)).toBe('Result: 10000000000');
+  });
+
+  test('multiply 1e-5 * 1e-5', () => {
+    expect(runCalculator('multiply', 1e-5, 1e-5)).toBe('Result: 0');
+  });
+  
   // Negative tests
   test('multiply missing second operand', () => {
     expect(runCalculator('multiply', 2, '')).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');

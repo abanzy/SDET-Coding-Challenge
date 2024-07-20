@@ -26,6 +26,15 @@ describe('Subtract Operation Tests', () => {
     expect(runCalculator('subtract', 1e-10, 1e-10)).toBe('Result: 0');
   });
 
+  test('subtract 1e10 - 1e10', () => {
+    expect(runCalculator('subtract', 1e10, 1e10)).toBe('Result: 0');
+  });
+
+  test('subtract 1e-10 - 1e-11', () => {
+    expect(runCalculator('subtract', 1e-10, 1e-11)).toBe('Result: 0');
+  });
+  
+
   // Negative tests
   test('subtract invalid operand type', () => {
     expect(runCalculator('subtract', 2, 'three')).toBe('Invalid argument. Must be a numeric value.');
