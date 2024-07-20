@@ -30,4 +30,20 @@ describe('Divide Operation Tests', () => {
   test('divide by zero', () => {
     expect(runCalculator('divide', 5, 0)).toBe('Error: Cannot divide by zero');
   });
+
+  test('divide invalid operand type', () => {
+    expect(runCalculator('divide', 'six', 'three')).toBe('Invalid argument. Must be a numeric value.');
+  });
+
+  test('divide missing second operand', () => {
+    expect(runCalculator('divide', 6, '')).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
+  });
+
+  test('divide missing first operand', () => {
+    expect(runCalculator('divide', '', 3)).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
+  });
+
+  test('divide non-numeric second operand', () => {
+    expect(runCalculator('divide', 5, undefined)).toBe('Invalid argument. Must be a numeric value.');
+  });
 });

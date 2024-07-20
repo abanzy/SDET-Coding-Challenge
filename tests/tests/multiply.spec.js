@@ -25,4 +25,25 @@ describe('Multiply Operation Tests', () => {
   test('multiply 1e10 * 1e-10', () => {
     expect(runCalculator('multiply', 1e10, 1e-10)).toBe('Result: 1');
   });
+
+  test('multiply invalid operand type', () => {
+    expect(runCalculator('multiply', 'two', 'three')).toBe('Invalid argument. Must be a numeric value.');
+  });
+
+  // Negative tests
+  test('multiply missing second operand', () => {
+    expect(runCalculator('multiply', 2, '')).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
+  });
+
+  test('multiply missing first operand', () => {
+    expect(runCalculator('multiply', '', 3)).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
+  });
+
+  test('multiply non-numeric first operand', () => {
+    expect(runCalculator('multiply', null, 3)).toBe('Invalid argument. Must be a numeric value.');
+  });
+
+  test('multiply non-numeric second operand', () => {
+    expect(runCalculator('multiply', 2, undefined)).toBe('Invalid argument. Must be a numeric value.');
+  });
 });

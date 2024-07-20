@@ -27,7 +27,23 @@ describe('Subtract Operation Tests', () => {
   });
 
   // Negative tests
-  test('subtract invalid operand', () => {
+  test('subtract invalid operand type', () => {
     expect(runCalculator('subtract', 2, 'three')).toBe('Invalid argument. Must be a numeric value.');
+  });
+
+  test('subtract missing second operand', () => {
+    expect(runCalculator('subtract', 5, '')).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
+  });
+
+  test('subtract missing first operand', () => {
+    expect(runCalculator('subtract', '', 3)).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
+  });
+
+  test('subtract non-numeric first operand', () => {
+    expect(runCalculator('subtract', null, 3)).toBe('Invalid argument. Must be a numeric value.');
+  });
+
+  test('subtract non-numeric second operand', () => {
+    expect(runCalculator('subtract', 5, undefined)).toBe('Invalid argument. Must be a numeric value.');
   });
 });

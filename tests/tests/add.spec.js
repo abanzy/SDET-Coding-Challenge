@@ -34,4 +34,16 @@ describe('Add Operation Tests', () => {
   test('add missing operand', () => {
     expect(runCalculator('add', 1, '')).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
   });
+  
+  test('add missing first operand', () => {
+    expect(runCalculator('add', '', 2)).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
+  });
+
+  test('add non-numeric first operand', () => {
+    expect(runCalculator('add', null, 2)).toBe('Invalid argument. Must be a numeric value.');
+  });
+
+  test('add non-numeric second operand', () => {
+    expect(runCalculator('add', 2, undefined)).toBe('Invalid argument. Must be a numeric value.');
+  });
 });
