@@ -1,3 +1,5 @@
+[![CI](https://github.com/abanzy/SDET-Coding-Challenge/actions/workflows/ci.yml/badge.svg)](https://github.com/abanzy/SDET-Coding-Challenge/actions/workflows/ci.yml)
+
 # 🧪 Test Suite for CLI Calculator
 
 Welcome to the **Test Suite for CLI Calculator**! This project ensures the accuracy and reliability of a command-line calculator through a comprehensive set of automated tests. The test suite is implemented using Jest and integrated with GitHub Actions for continuous integration.
