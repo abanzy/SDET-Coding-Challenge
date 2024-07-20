@@ -10,24 +10,24 @@ function runCalculator(operation, num1, num2) {
 }
 
 describe('Subtract Operation Tests', () => {
-  test.concurrent('subtract 5 - 3', () => {
+  test('subtract 5 - 3', () => {
     expect(runCalculator('subtract', 5, 3)).toBe('Result: 2');
   });
 
-  test.concurrent('subtract 3 - 5', () => {
+  test('subtract 3 - 5', () => {
     expect(runCalculator('subtract', 3, 5)).toBe('Result: -2');
   });
 
-  test.concurrent('subtract 5.5 - 3.2', () => {
+  test('subtract 5.5 - 3.2', () => {
     expect(runCalculator('subtract', 5.5, 3.2)).toBe('Result: 2.3');
   });
 
-  test.concurrent('subtract 1e-10 - 1e-10', () => {
+  test('subtract 1e-10 - 1e-10', () => {
     expect(runCalculator('subtract', 1e-10, 1e-10)).toBe('Result: 0');
   });
 
   // Negative tests
-  test.concurrent('subtract invalid operand', () => {
+  test('subtract invalid operand', () => {
     expect(runCalculator('subtract', 2, 'three')).toBe('Invalid argument. Must be a numeric value.');
   });
 });

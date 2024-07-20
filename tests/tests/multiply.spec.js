@@ -10,19 +10,19 @@ function runCalculator(operation, num1, num2) {
 }
 
 describe('Multiply Operation Tests', () => {
-  test.concurrent('multiply 2 * 3', () => {
+  test('multiply 2 * 3', () => {
     expect(runCalculator('multiply', 2, 3)).toBe('Result: 6');
   });
 
-  test.concurrent('multiply -2 * 3', () => {
+  test('multiply -2 * 3', () => {
     expect(runCalculator('multiply', -2, 3)).toBe('Result: -6');
   });
 
-  test.concurrent('multiply 2.5 * 4', () => {
+  test('multiply 2.5 * 4', () => {
     expect(runCalculator('multiply', 2.5, 4)).toBe('Result: 10');
   });
 
-  test.concurrent('multiply 1e10 * 1e-10', () => {
+  test('multiply 1e10 * 1e-10', () => {
     expect(runCalculator('multiply', 1e10, 1e-10)).toBe('Result: 1');
   });
 });
