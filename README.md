@@ -1,8 +1,6 @@
 [![CI](https://github.com/abanzy/SDET-Coding-Challenge/actions/workflows/ci.yml/badge.svg)](https://github.com/abanzy/SDET-Coding-Challenge/actions/workflows/ci.yml)
 # 🧪 Test Suite for CLI Calculator
 
-[![CI](https://github.com/abanzy/SDET-Coding-Challenge/actions/workflows/ci.yml/badge.svg)](https://github.com/abanzy/SDET-Coding-Challenge/actions/workflows/ci.yml)
-
 Welcome to the **Test Suite for CLI Calculator**! This project ensures the accuracy and reliability of a command-line calculator through a comprehensive set of automated tests. The test suite is implemented using Jest and integrated with GitHub Actions for continuous integration.
 
 # 🔎 Findings
@@ -40,8 +38,6 @@ test('add 1e10 + -1e10', () => {
 ## Summary
 
 The calculator application shows inconsistencies in error response formats across different operations. Uniform error responses are crucial for clarity and effective debugging.
-
----
 
 ## Detailed Report
 # User-Friendly Error Messages for Calculator Operations 🧮
@@ -149,7 +145,6 @@ The calculator application shows inconsistencies in error response formats acros
    - **🚀 Ideal Response:** `'Error: The second number you entered is not valid. Please enter a proper number.'`
      - **💡 Best Practice:** Clearly specify which number is incorrect and guide users to correct their input.
 
----
 
 ## Recommendations
 
