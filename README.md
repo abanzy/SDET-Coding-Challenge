@@ -178,8 +178,8 @@ To run the test suite locally, you'll need Node.js and Docker installed on your 
 Clone the repository to your local machine:
 
 ```sh
-git clone https://github.com/your-repo/calculator-cli-tests.git
-cd calculator-cli-tests
+git clone https://github.com/abanzy/SDET-Coding-Challenge.git
+cd SDET-Coding-Challenge
 ```
 
 ### 📦 Install Dependencies
