@@ -10,48 +10,48 @@ function runCalculator(operation, num1, num2) {
 }
 
 describe('Add Operation Tests', () => {
-  test('add 2 + 3', () => {
+  test('TC-001: Adding 2 and 3 should yield 5', () => {
     expect(runCalculator('add', 2, 3)).toBe('Result: 5');
   });
 
-  test('add -2 + 3', () => {
+  test('TC-002: Adding -2 and 3 should yield 1', () => {
     expect(runCalculator('add', -2, 3)).toBe('Result: 1');
   });
 
-  test('add 2.5 + 3.2', () => {
+  test('TC-003: Adding 2.5 and 3.2 should yield 5.7', () => {
     expect(runCalculator('add', 2.5, 3.2)).toBe('Result: 5.7');
   });
 
-  test('add 1e-10 + 1e-10', () => {
+  test('TC-004: Adding very small numbers 1e-10 and 1e-10 should be rounded to 0', () => {
     expect(runCalculator('add', 1e-10, 1e-10)).toBe('Result: 0');
   });
 
-  test('add 1e10 + 1e10', () => {
+  test('TC-005: Adding large numbers 1e10 and 1e10 should yield 20000000000', () => {
     expect(runCalculator('add', 1e10, 1e10)).toBe('Result: 20000000000');
   });
-  
-  test('add 1e10 + -1e10', () => {
+
+  test('TC-006: Adding 1e10 and -1e10 should yield 0', () => {
     expect(runCalculator('add', 1e10, -1e10)).toBe('Result: 0');
-  });  
+  });
 
   // Negative tests
-  test('add invalid operands', () => {
+  test('TC-007: Adding non-numeric values should return an error about numeric values', () => {
     expect(runCalculator('add', 'two', 'three')).toBe('Invalid argument. Must be a numeric value.');
   });
 
-  test('add missing operand', () => {
+  test('TC-008: Adding with a missing second operand should display usage instructions', () => {
     expect(runCalculator('add', 1, '')).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
   });
-  
-  test('add missing first operand', () => {
+
+  test('TC-009: Adding with a missing first operand should display usage instructions', () => {
     expect(runCalculator('add', '', 2)).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
   });
 
-  test('add non-numeric first operand', () => {
+  test('TC-010: Adding with a non-numeric first operand should return an error about numeric values', () => {
     expect(runCalculator('add', null, 2)).toBe('Invalid argument. Must be a numeric value.');
   });
 
-  test('add non-numeric second operand', () => {
+  test('TC-011: Adding with a non-numeric second operand should return an error about numeric values', () => {
     expect(runCalculator('add', 2, undefined)).toBe('Invalid argument. Must be a numeric value.');
   });
 });
