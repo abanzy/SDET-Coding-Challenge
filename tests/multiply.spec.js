@@ -35,23 +35,23 @@ describe('Multiply Operation Tests', () => {
   });
 
   // Negative tests
-  test('TC-030: Multiplying with a missing second operand should display usage instructions', () => {
+  test('TC-030: Multiply two and three should displaye usage instructions', () => {
     expect(runCalculator('multiply', 'two', 'three')).toBe('Invalid argument. Must be a numeric value.');
   });
 
-  test('TC-030: Multiplying with a missing second operand should display usage instructions', () => {
+  test('TC-031: Multiplying with a missing second operand should display usage instructions', () => {
     expect(runCalculator('multiply', 2, '')).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
   });
 
-  test('TC-031: Multiplying with a missing first operand should display usage instructions', () => {
+  test('TC-032: Multiplying with a missing first operand should display usage instructions', () => {
     expect(runCalculator('multiply', '', 3)).toBe('Usage: cli-calculator operation operand1 operand2\nSupported operations: add, subtract, multiply, divide');
   });
 
-  test('TC-032: Multiplying with a non-numeric first operand should return an error about numeric values', () => {
+  test('TC-033: Multiplying with a non-numeric first operand should return an error about numeric values', () => {
     expect(runCalculator('multiply', null, 3)).toBe('Invalid argument. Must be a numeric value.');
   });
 
-  test('TC-033: Multiplying with a non-numeric second operand should return an error about numeric values', () => {
+  test('TC-034: Multiplying with a non-numeric second operand should return an error about numeric values', () => {
     expect(runCalculator('multiply', 2, undefined)).toBe('Invalid argument. Must be a numeric value.');
   });
 });
